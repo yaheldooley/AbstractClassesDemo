@@ -35,7 +35,7 @@ namespace ConsoleUI
 
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
-             * - new it up as one of each derived class
+             * - set them up as one of each derived class
              * Set the properties with object initializer syntax
              */
 
