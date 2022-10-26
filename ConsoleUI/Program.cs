@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ConsoleUI
 {
-    class Program
+    partial class Program
     {
         static void Main(string[] args)
         {
@@ -32,22 +34,47 @@ namespace ConsoleUI
             */
 
             // Create a list of Vehicle called vehicles
-
+            List<Vehicle> vehicles = new List<Vehicle>();
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
              * - set them up as one of each derived class
              * Set the properties with object initializer syntax
              */
+            Car car = new Car();
+            car.Year = "1998";
+            car.Make = "Honda";
+            car.Model = "Civic";
 
-            /*
+            Motorcycle motorcycle = new Motorcycle();
+            motorcycle.Year = "2001";
+            motorcycle.Make = "Kawasaki";
+            motorcycle.Model = "Ninja";
+
+            Vehicle vehicle1 = new Car();
+            Vehicle vehicle2 = new Motorcycle();
+
+			/*
              * Add the 4 vehicles to the list
              * Using a foreach loop iterate over each of the properties
              */
 
-            // Call each of the drive methods for one car and one motorcycle
-
-            #endregion            
-            Console.ReadLine();
+			// Call each of the drive methods for one car and one motorcycle
+			vehicles.Add(car);
+			vehicles.Add(motorcycle);
+			vehicles.Add(vehicle1);
+			vehicles.Add(vehicle2);
+            foreach(Vehicle v in vehicles)
+            {
+				Console.WriteLine("------------------------------------");
+                v.PrintProperties();
+                Console.WriteLine();
+                v.DriveVirtual();
+                v.DriveAbstract();
+				Console.WriteLine();
+			}
+			#endregion
+			Console.ReadLine();
         }
-    }
+
+	}
 }
